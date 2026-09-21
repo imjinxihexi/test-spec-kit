@@ -1,0 +1,39 @@
+.container {
+  .errorText {
+    color: #ff4d4f;
+    font-size: 12px;
+    margin-top: 4px;
+  }
+
+  .addButton {
+    margin-top: 16px;
+  }
+
+  :global {
+    .drag-handle {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGcgZmlsbD0iIzk5OSI+CiAgICA8Y2lyY2xlIGN4PSI1IiBjeT0iNCIgcj0iMiIvPgogICAgPGNpcmNsZSBjeD0iMTEiIGN5PSI0IiByPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSI1IiBjeT0iOCIgcj0iMiIvPgogICAgPGNpcmNsZSBjeD0iMTEiIGN5PSI4IiByPSIyIi8+CiAgICA8Y2lyY2xlIGN4PSI1IiBjeT0iMTIiIHI9IjIiLz4KICAgIDxjaXJjbGUgY3g9IjExIiBjeT0iMTIiIHI9IjIiLz4KICA8L2c+Cjwvc3ZnPg==');
+      background-size: contain;
+      cursor: grab;
+
+      &:active {
+        cursor: grabbing;
+      }
+    }
+
+    .row-dragging {
+      background: #fafafa;
+      border: 1px dashed #ccc;
+    }
+
+    .row-dragging td {
+      padding: 16px;
+    }
+
+    .row-dragging .drag-handle {
+      visibility: hidden;
+    }
+  }
+}

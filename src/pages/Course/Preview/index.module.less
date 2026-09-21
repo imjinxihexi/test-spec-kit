@@ -1,0 +1,26 @@
+.preview {
+  height: calc(100vh - 48px) !important;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  overflow: hidden;
+
+  .main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+
+    .content {
+      flex: 1;
+      background: #f5f5f5;
+      overflow: hidden;
+    }
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+}

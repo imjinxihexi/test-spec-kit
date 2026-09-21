@@ -1,0 +1,123 @@
+// src/pages/Category/Management/components/CategoryTree/index.module.less
+.treeContainer {
+  // 唯一的滚动容器：父级 .leftPanel 是纵向 flex 且自身 overflow:hidden，
+  // 这里用 flex:1 占满剩余高度（min-height:0 才允许收缩到内容以下），滚动只出现一次。
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+
+  .tree {
+    :global {
+      // 树节点整体样式
+      .ant-tree-treenode {
+        padding: 0;
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
+
+      // 节点内容包装器
+      .ant-tree-node-content-wrapper {
+        width: 100%;
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        // 允许内部文字收缩，否则 flex 子项按内容最小宽度撑开，省略号不会生效
+        min-width: 0;
+        overflow: hidden;
+
+        // 节点标题
+        // 行高被 .ant-tree-treenode 写死为 40px，若允许换行，长名字会换成 2~3 行
+        // （18px × 3 = 54px > 40px）而溢出、与下一行文字重叠。故强制单行 + 省略号，
+        // 全名由 CategoryTree.tsx 给标题挂的 title 属性悬浮显示。
+        .ant-tree-title {
+          font-size: 13px;
+          line-height: 18px;
+          color: #171f26;
+          flex: 1;
+          min-width: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      // 选中状态
+      .ant-tree-node-selected {
+        background-color: transparent !important;
+        
+        .ant-tree-title {
+          color: #0068ff;
+        }
+        
+        .ant-tree-node-content-wrapper {
+          background-color: transparent !important;
+        }
+      }
+
+      // hover 状态
+      .ant-tree-node-content-wrapper:hover {
+        background-color: rgba(0, 0, 0, 0.04);
+      }
+
+      // 展开/收起图标
+      .ant-tree-switcher {
+        width: 16px;
+        height: 40px;
+        line-height: 40px;
+        margin-right: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        
+        // .ant-tree-switcher-icon {
+        //   font-size: 16px;
+        //   color: rgba(49, 69, 106, 0.36);
+        //   display: flex;
+        //   align-items: center;
+        //   justify-content: center;
+        //   transition: transform 0.3s;
+        // }
+      }
+
+      // 收起状态的图标（向右旋转-90度）
+      .ant-tree-switcher_close {
+        // .ant-tree-switcher-icon {
+          transform: rotate(-90deg);
+        // }
+      }
+
+      // 展开状态的图标（不旋转）
+      .ant-tree-switcher_open {
+        // .ant-tree-switcher-icon {
+          transform: rotate(0deg);
+        // }
+      }
+
+      // 叶子节点占位符
+      .ant-tree-switcher-noop {
+        width: 16px;
+        margin-right: 12px;
+      }
+
+      // 缩进
+      .ant-tree-indent {
+        &-unit {
+          width: 16px;
+        }
+      }
+
+      // 移除连接线
+      .ant-tree-show-line {
+        .ant-tree-indent-unit {
+          &::before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

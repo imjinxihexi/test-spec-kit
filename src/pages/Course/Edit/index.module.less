@@ -1,0 +1,39 @@
+.container {
+  padding: 24px;
+  background: #fff;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
+  padding-bottom: 80px; // 为底部按钮留空间
+
+  .section {
+    margin-bottom: 24px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: 8px;
+  }
+
+  .coursewareSection {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+
+    .coursewareContent {
+      flex: 1;
+      min-width: 0;
+    }
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 12px 24px;
+    background: #fff;
+    border-top: 1px solid #e8e8e8;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    z-index: 100;
+  }
+}

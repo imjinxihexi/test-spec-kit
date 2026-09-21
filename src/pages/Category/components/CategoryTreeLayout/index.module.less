@@ -1,0 +1,43 @@
+// src/pages/Category/components/CategoryTreeLayout/index.module.less
+.container {
+  // 高度由组件以内联样式给出：calc(100vh - heightOffset)。
+  // 不能写 height:100% —— 骁龙基座传下来的父容器是 height:auto，100% 会退化成 auto，
+  // 下面这条 flex + overflow 链就全部失效（树全展开顶高页面 / 底部大片空白）。
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: #fff;
+}
+
+.content {
+  flex: 1;
+  overflow: hidden;
+  // flex 项默认 min-height: auto，不允许收缩到内容高度以下，会导致 overflow: hidden 失效、
+  // 子内容（分类树全展开时）把整个页面顶高。显式置 0 才能让上面的 overflow 真正生效。
+  min-height: 0;
+}
+
+.leftPanel {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  border-right: 1px solid #f0f0f0;
+  padding-right: 16px;
+  // 显式 height:100%（与 .rightPanel 一致），不依赖 antd Row 的 align stretch。
+  // Row 是 flex-flow: row wrap，带换行时子项拉伸不可靠；缺了这条，本面板拿不到确定高度，
+  // 内部 .treeContainer 的 flex:1 就无从计算 → 树按内容铺开 → 被下面的 overflow:hidden
+  // 裁掉且不出滚动条。
+  height: 100%;
+  min-height: 0;
+  // 本容器自己不滚动（否则会和 CategoryTree 的 .treeContainer 形成两层嵌套滚动条）。
+  // 改为纵向 flex：「排序」按钮固定在顶部，滚动只发生在下方的树区域内。
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.rightPanel {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}

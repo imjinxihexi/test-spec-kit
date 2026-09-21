@@ -1,0 +1,181 @@
+.chapterTree {
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  background: #34495e;
+  color: #ecf0f1;
+  overflow-y: auto;
+  transition: width 0.2s ease;
+  flex-shrink: 0;
+
+  &.collapsed {
+    width: 48px;
+    min-width: 48px;
+    max-width: 48px;
+    overflow: hidden;
+  }
+
+  .header {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .collapseBtn {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      font-size: 12px;
+      flex-shrink: 0;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+
+  &.collapsed .header {
+    justify-content: center;
+    padding: 12px;
+  }
+
+  .chapters {
+    padding: 8px 0;
+  }
+
+  .chapter {
+    margin-bottom: 4px;
+
+    .chapterTitle {
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 500;
+      min-width: 0;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+
+      > span {
+        min-width: 0;
+        flex: 1;
+        word-break: break-all;
+        overflow-wrap: break-word;
+        white-space: normal;
+      }
+
+      .iconExpanded,
+      .iconCollapsed {
+        margin-right: 8px;
+        font-size: 12px;
+        transition: transform 0.2s;
+        flex-shrink: 0;
+      }
+
+      .iconExpanded {
+        transform: rotate(0deg);
+      }
+
+      .iconCollapsed {
+        transform: rotate(-90deg);
+      }
+
+      &.locked {
+        opacity: 0.5;
+
+        .lockIcon {
+          margin-right: 8px;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
+
+    .contents {
+      .contentItem {
+        padding: 10px 16px 10px 40px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8);
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.05);
+        }
+
+        &.active {
+          background: rgba(52, 152, 219, 0.3);
+          color: #3498db;
+          font-weight: 500;
+        }
+
+        &.disabled {
+          opacity: 0.4;
+          cursor: not-allowed;
+
+          &:hover {
+            background: transparent;
+          }
+        }
+
+        .icon {
+          margin-right: 8px;
+          font-size: 14px;
+        }
+
+        .name {
+          flex: 1;
+          min-width: 0;
+          word-break: break-all;
+          overflow-wrap: break-word;
+        }
+
+        .downloadIcon {
+          margin-left: 8px;
+          margin-right: 12px;
+          font-size: 14px;
+          color: white;
+          cursor: pointer;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+
+          &:hover {
+            color: rgba(255, 255, 255, 0.8);
+          }
+        }
+
+        .downloadingIcon {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        .progress {
+          margin-left: auto;
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.5);
+          display: flex;
+          align-items: center;
+
+          .completedIcon {
+            color: #2986FF;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+.modal {
+  :global {
+    .ant-modal-body {
+      padding: 24px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  gap: 24px;
+  min-height: 500px;
+}
+
+// 左侧面板
+.leftPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.searchBar {
+  margin-bottom: 16px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+
+  .searchItem {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .label {
+      font-size: 14px;
+      color: rgba(0, 0, 0, 0.85);
+    }
+  }
+}
+
+// 右侧面板
+.rightPanel {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #f0f0f0;
+  padding-left: 24px;
+}
+
+.selectedHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+
+  span {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 500;
+  }
+}
+
+
+
+.footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 16px;
+}
+
+// 表格样式优化
+:global {
+  .ant-table-tbody > tr.ant-table-row-selected > td {
+    background-color: #e6f7ff;
+  }
+
+  .ant-table-thead > tr > th {
+    white-space: nowrap;
+  }
+}

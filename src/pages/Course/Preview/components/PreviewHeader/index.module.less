@@ -1,0 +1,70 @@
+.header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 16px 24px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 4px;
+
+    .backIcon {
+      margin-right: 12px;
+      cursor: pointer;
+      font-size: 16px;
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .courseName {
+      flex: 1;
+    }
+  }
+
+  .subtitle {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-left: 28px;
+  }
+
+  // 顶部语言切换器:透明底 + 白色边框和文字,与深色 header 融合
+  .langSwitcher {
+    margin-left: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    .langIcon {
+      color: #fff;
+      font-size: 16px;
+    }
+
+    :global {
+      .ant-select {
+        min-width: 160px;
+      }
+      .ant-select .ant-select-selector {
+        background-color: transparent !important;
+        border: 1px solid rgba(255, 255, 255, 0.4) !important;
+        border-radius: 4px !important;
+        transition: border-color 0.2s;
+      }
+      .ant-select:hover .ant-select-selector,
+      .ant-select-focused .ant-select-selector {
+        border-color: rgba(255, 255, 255, 0.8) !important;
+        box-shadow: none !important;
+      }
+      .ant-select .ant-select-selection-item,
+      .ant-select .ant-select-selection-placeholder {
+        color: #fff !important;
+      }
+      .ant-select .ant-select-arrow {
+        color: rgba(255, 255, 255, 0.65) !important;
+      }
+    }
+  }
+}

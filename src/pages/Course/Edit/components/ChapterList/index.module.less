@@ -1,0 +1,46 @@
+.container {
+  width: 200px;
+  flex-shrink: 0;
+  border: 1px solid #e8e8e8;
+  border-radius: 4px;
+  background: #fafafa;
+  padding: 12px;
+  box-sizing: border-box;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+  }
+
+  .chapterItem {
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    max-width: 100%;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    box-sizing: border-box;
+
+    &:hover {
+      background: #e6f7ff;
+    }
+
+    &.active {
+      background: #1890ff;
+      color: #fff;
+    }
+  }
+
+  .editButton {
+    margin-top: 8px;
+  }
+}
